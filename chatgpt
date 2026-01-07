@@ -1,0 +1,39 @@
+# How to install ChatGPT as an app
+
+# Download the AppImage
+mkdir -p ~/Applications
+cd ~/Applications
+wget https://github.com/lencx/ChatGPT/releases/download/v1.1.0/ChatGPT_1.1.0_linux_x86_64.AppImage.tar.gz
+tar -xvzf ChatGPT_1.1.0_linux_x86_64.AppImage.tar.gz
+chmod +x chat-gpt_1.1.0_amd64.AppImage
+./chat-gpt_1.1.0_amd64.AppImage
+
+# Download the icon
+mkdir -p ~/.local/share/icons
+wget -O ~/.local/share/icons/chatgpt.png https://www.icosix.com/uploads/icons/2025/09/chatgpt.png
+
+# Create a .desktop launcher (replace /home/henrik)
+mkdir -p ~/.local/share/applications
+nano ~/.local/share/applications/chatgpt.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ChatGPT
+Comment=ChatGPT (github.com/lencx)
+Exec=/home/henrik/Applications/chat-gpt_1.1.0_amd64.AppImage
+Icon=chatgpt
+Terminal=false
+Categories=Network;
+StartupWMClass=ChatGPT
+
+# Make the launcher executable and refresh KDE
+chmod +x ~/.local/share/applications/chatgpt.desktop
+kbuildsycoca5
+
+# Launch
+Press Alt+Space, type ChatGPT, Enter → the app opens.
+
+# [ERROR] Pin and reopen
+Right-click the Task Manager icon → Pin to Task Manager.
+Close and reopen → the pinned icon will stay permanently, with the ChatGPT logo.
