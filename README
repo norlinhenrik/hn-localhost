@@ -1,5 +1,7 @@
-I wanted to open multiple Vivaldi windows at once, and that's easy with the ´vivaldi´ script.
+# localhost hacks
 
-After creating a .desktop file inside ~/.local/share/applications, run
+Tested on kubuntu
 
-`update-desktop-database ~/.local/share/applications`
+## winrun
+
+Use multiple windows of the same app (e.g. a browser).
