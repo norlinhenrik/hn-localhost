@@ -1,0 +1,16 @@
+[Desktop Entry]
+Comment=
+Exec=winrun brave-chatgpt brave --app=https://chatgpt.com --profile-directory=Profile_Chatgpt
+GenericName[nb_NO]=
+GenericName=
+Icon=/home/henrik/.local/share/applications/icons/chatgpt.png
+MimeType=
+Name=Brave - ChatGPT
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

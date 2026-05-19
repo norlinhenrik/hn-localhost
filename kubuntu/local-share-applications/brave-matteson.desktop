@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun brave-matteson brave --profile-directory="Profile_Matteson"
+Icon=/home/henrik/.local/share/applications/icons/green.svg
+Name=Brave - Matteson
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

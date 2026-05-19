@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun brave-fredheim brave --profile-directory="Profile_Fredheim"
+Icon=/home/henrik/.local/share/applications/icons/red.svg
+Name=Brave - Fredheim
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

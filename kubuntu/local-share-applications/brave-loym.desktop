@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun brave-loym brave --profile-directory="Profile_Loym"
+Icon=/home/henrik/.local/share/applications/icons/blue.svg
+Name=Brave - Loym
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
