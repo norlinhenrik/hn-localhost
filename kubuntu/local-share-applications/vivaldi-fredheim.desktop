@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Fredheim
+Comment=
+Exec=/snap/bin/vivaldi.vivaldi-stable --profile-directory="Profile_Fredheim" %U
+Icon=/home/henrik/.local/share/applications/icons/red.svg
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;

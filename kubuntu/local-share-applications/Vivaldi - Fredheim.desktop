@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun vivaldi-fredheim vivaldi --profile-directory="Profile_Fredheim"
+Icon=/home/henrik/.local/share/applications/icons/red.svg
+Name=Vivaldi - Fredheim
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

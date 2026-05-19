@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Logos
+Type=Application
+Exec=/home/henrik/.local/share/FaithLife-Community/oudedetai/oudedetai --run-installed-app
+Categories=Education;Spirituality;Languages;Literature;Maps;
+Keywords=Logos;Verbum;FaithLife;Bible;Control;Christianity;Jesus;
+Terminal=false
+GenericName=Bible
+Comment=Runs Faithlife Bible Software via Wine (snap). Community supported.
+Icon=/home/henrik/.local/share/FaithLife-Community/oudedetai/data/Logos-128-icon.png
+StartupWMClass=logos.exe

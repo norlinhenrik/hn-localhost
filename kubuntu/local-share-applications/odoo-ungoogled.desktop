@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=henriknorlin.odoo.loym.com
+Exec=flatpak run io.github.ungoogled_software.ungoogled_chromium --app=https://henriknorlin.odoo.loym.com
+Icon=ungoogled-chromium
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+StartupNotify=true

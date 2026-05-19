@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Loym
+Comment=
+# Exec=/snap/bin/vivaldi.vivaldi-stable --profile-directory="Profile_Loym" %U
+Exec=/usr/local/bin/viv Loym %U
+Icon=/home/henrik/.local/share/applications/icons/blue.svg
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+StartupWMClass=Vivaldi-Loym
+
+

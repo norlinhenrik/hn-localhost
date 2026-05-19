@@ -1,0 +1,18 @@
+[Desktop Entry]
+Comment[nb_NO]=
+Comment=
+Exec=bash -c 'winrun vivaldi-todo vivaldi --app=https://henriknorlin.odoo.loym.com/odoo/my-tasks?debug=1'
+GenericName[nb_NO]=
+GenericName=
+Icon=/home/henrik/.local/share/icons/todo.png
+MimeType=
+Name[nb_NO]=Vivaldi - TODO
+Name=Vivaldi - TODO
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

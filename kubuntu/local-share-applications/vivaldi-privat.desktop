@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Privat
+Comment=
+Exec=/snap/bin/vivaldi.vivaldi-stable --profile-directory="Profile_Privat" %U
+Icon=/home/henrik/.local/share/applications/icons/yellow.svg
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;

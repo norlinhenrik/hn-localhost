@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=FIQ
+Comment=
+Exec=/usr/local/bin/viv FIQ %U
+Icon=/home/henrik/.local/share/applications/icons/black.svg
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+StartupWMClass=Vivaldi-FIQ

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Matteson
+Comment=
+Exec=/snap/bin/vivaldi.vivaldi-stable --profile-directory="Profile_Matteson" %U
+Icon=/home/henrik/.local/share/applications/icons/green.svg
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun vivaldi-privat vivaldi --profile-directory="Profile_Privat"
+Icon=/home/henrik/.local/share/applications/icons/yellow.svg
+Name=Vivaldi - Privat
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

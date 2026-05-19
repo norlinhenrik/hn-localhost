@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Logos URL Handler
+Type=Application
+Exec=/home/henrik/.local/share/FaithLife-Community/oudedetai/oudedetai --wine 'C:\\users\\henrik\\AppData\\Local\\Logos\\Logos.exe' '%u'
+Categories=Education;Spirituality;Languages;Literature;Maps;
+Keywords=Logos;Verbum;FaithLife;Bible;Control;Christianity;Jesus;
+Terminal=true
+Comment=Handles logos4: and libronixdls: URL Schemes
+Icon=/home/henrik/.local/share/FaithLife-Community/oudedetai/data/icon.png
+MimeType=x-scheme-handler/logos4;x-scheme-handler/libronixdls
+StartupNotify=false

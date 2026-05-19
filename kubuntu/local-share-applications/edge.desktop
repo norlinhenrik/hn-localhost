@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Microsoft Edge (Velg profil)
+Exec=microsoft-edge --profile-picker
+Icon=google-chrome
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+StartupNotify=true

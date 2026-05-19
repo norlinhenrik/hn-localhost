@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Ou Dedetai
+Type=Application
+Exec=/home/henrik/.local/share/FaithLife-Community/oudedetai/oudedetai
+Categories=Education;Spirituality;Languages;Literature;Maps;
+Keywords=Logos;Verbum;FaithLife;Bible;Control;Christianity;Jesus;
+Terminal=false
+GenericName=FaithLife App Installer
+Comment=Installs and manages either Logos or Verbum via wine. Community supported.
+Icon=/home/henrik/.local/share/FaithLife-Community/oudedetai/data/icon.png
+StartupWMClass=oudedetai

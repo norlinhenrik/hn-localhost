@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=winrun vivaldi-incognito vivaldi --incognito\n
+Icon=/home/henrik/.local/share/applications/icons/black.svg
+Name=Vivaldi - Incognito
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

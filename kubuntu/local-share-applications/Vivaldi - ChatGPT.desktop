@@ -1,0 +1,18 @@
+[Desktop Entry]
+Comment[nb_NO]=
+Comment=
+Exec=winrun vivaldi-chatgpt vivaldi --app=https://chatgpt.com --profile-directory=Profile_Loym
+GenericName[nb_NO]=
+GenericName=
+Icon=/home/henrik/.local/share/icons/chatgpt.png
+MimeType=
+Name[nb_NO]=Vivaldi - ChatGPT
+Name=Vivaldi - ChatGPT
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

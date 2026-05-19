@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ChatGPT
+Comment=ChatGPT (github.com/lencx)
+Exec=/home/henrik/Applications/chat-gpt_1.1.0_amd64.AppImage
+Icon=chatgpt
+Terminal=false
+Categories=Network;
+StartupWMClass=ChatGPT
+
