@@ -3,15 +3,15 @@
 # VARIABLES
 
 email="your-email@example.com"
+name="Your Name"
 
 # INSTALL
 
 sudo apt update
 sudo apt upgrade
 
-sudo apt install pipx && pipx ensurepath && source ~/.bashrc
+sudo apt install pipx -y && pipx ensurepath && source ~/.bashrc
 pipx install oca-port
-pipx install oca-port-pr
 
 sudo apt install snapd
 sudo snap install brave
@@ -24,6 +24,12 @@ sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
 ssh-keygen -t ed25519 -C $email
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+
+# GIT
+
+git config --global user.email $email
+git config --global user.name $name
+
 
 # GITHUB
 
