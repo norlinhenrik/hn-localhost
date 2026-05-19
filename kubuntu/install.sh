@@ -30,7 +30,6 @@ ssh-add ~/.ssh/id_ed25519
 git config --global user.email $email
 git config --global user.name $name
 
-
 # GITHUB
 
 xclip -sel clip < ~/.ssh/id_ed25519.pub
@@ -44,3 +43,12 @@ wget https://raw.githubusercontent.com/loym-com/tools-odoo-sh/refs/heads/main/lo
 python3 gitclone.py git@github.com:norlinhenrik/hn-localhost.git
 ln -s ~/src/gh/norlinhenrik/hn-localhost/main/kubuntu/local-share-applications ~/.local/share/applications
 ln -s ~/src/gh/norlinhenrik/hn-localhost/main/winrun ~/.local/bin/winrun
+
+# BRAVE
+
+# Applications: Drag Brave profiles to the bottom panel.
+# Do with each profile:
+# - Set name and color
+# - Install Odoo Debug
+# - Install Bitwarden
+# - Sync Brave (use key saved in Bitwarden)
