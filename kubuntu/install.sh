@@ -15,7 +15,7 @@ pipx install oca-port
 
 sudo apt install snapd
 sudo snap install brave
-sudo snap install vivaldi
+sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/bin/vivaldi
 
 sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
 
