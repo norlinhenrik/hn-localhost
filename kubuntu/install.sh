@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# VIRTUALBOX
+
+Start: View - Auto-Resize Guest Display
+
+If not working, try the following two things:
+
+Power off
+Settings: Display: 128 MB Video Memory, VMSVGA, 3D Acceleration
+Start
+
+#lsblk
+sudo mkdir -p /mnt/cdrom
+sudo mount /dev/sr0 /mnt/cdrom
+#ls /mnt/cdrom
+sudo sh /mnt/cdrom/VBoxLinuxAdditions.run
+sudo reboot
+
 # VARIABLES
 
 email="your-email@example.com"
@@ -18,15 +35,6 @@ sudo snap install brave
 sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/bin/vivaldi
 
 sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
-
-# GUEST ADDITIONS
-
-#lsblk
-sudo mkdir -p /mnt/cdrom
-sudo mount /dev/sr0 /mnt/cdrom
-#ls /mnt/cdrom
-sudo sh /mnt/cdrom/VBoxLinuxAdditions.run
-sudo reboot
 
 # SSH
 
