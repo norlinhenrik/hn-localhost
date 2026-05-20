@@ -19,6 +19,15 @@ sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/b
 
 sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
 
+# GUEST ADDITIONS
+
+#lsblk
+sudo mkdir -p /mnt/cdrom
+sudo mount /dev/sr0 /mnt/cdrom
+#ls /mnt/cdrom
+sudo sh /mnt/cdrom/VBoxLinuxAdditions.run
+sudo reboot
+
 # SSH
 
 ssh-keygen -t ed25519 -C $email
