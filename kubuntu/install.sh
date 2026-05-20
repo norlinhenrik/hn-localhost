@@ -28,13 +28,19 @@ name="Your Name"
 sudo apt update
 sudo apt upgrade
 
+
 sudo apt install pipx -y && pipx ensurepath && source ~/.bashrc
 pipx install oca-port
 
 sudo apt install snapd
 sudo snap install brave
 sudo snap install codium --classic
+sudo snap install onlyoffice-desktopeditors
 #sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/bin/vivaldi
+
+sudo apt install wmctrl # winrun dependency for X11
+# sudo apt install qtchooser
+sudo apt install qt6-tools-dev-tools # winrun dependency for Wayland
 
 sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
 
@@ -62,6 +68,14 @@ wget https://raw.githubusercontent.com/loym-com/tools-odoo-sh/refs/heads/main/lo
 python3 gitclone.py git@github.com:norlinhenrik/hn-localhost.git
 ln -s ~/src/gh/norlinhenrik/hn-localhost/main/kubuntu/local-share-applications ~/.local/share/applications
 ln -s ~/src/gh/norlinhenrik/hn-localhost/main/winrun ~/.local/bin/winrun
+echo '# Created by Henrik Norlin' >> ~/.profile
+echo 'rm "$HOME/.cache/winrun/windows.json"' >> ~/.profile
+
+# HN-LOCALHOST-KWIN
+
+mkdir -p ~/.local/share/kwin/scripts
+ln -s ~/src/gh/norlinhenrik/hn-localhost/main/kubuntu/local-share-kwin-scripts-winrun ~/.local/share/kwin/scripts/winrun
+kpackagetool6 --type KWin/Script -i ~/.local/share/kwin/scripts/winrun
 
 # BRAVE
 

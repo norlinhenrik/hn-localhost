@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "winrun",
+    "Name": "winrun",
+    "Description": "Window tracking for winrun",
+    "Version": "1.0",
+    "License": "MIT",
+    "Authors": [
+      {
+        "Name": "henrik"
+      }
+    ]
+  },
+  "X-KDE-PluginInfo-EnabledByDefault": true
+}
