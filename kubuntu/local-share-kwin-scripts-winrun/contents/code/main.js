@@ -1,58 +1,151 @@
-const fs = require("fs");
+print("WINRUN SCRIPT LOADED");
 
-const STATE_FILE = "/home/henrik/.cache/winrun/windows.json";
+/*
+ * CONFIG
+ */
+var STATE_FILE = "/home/henrik/.cache/winrun/windows.json";
 
-function loadState() {
+/*
+ * FILE IO (Qt API)
+ */
+function readFile(path) {
+    var file = new QFile(path);
+
+    if (!file.open(QIODevice.ReadOnly)) {
+        return {};
+    }
+
+    var stream = new QTextStream(file);
+    var content = stream.readAll();
+    file.close();
+
     try {
-        return JSON.parse(fs.readFileSync(STATE_FILE));
+        return JSON.parse(content);
     } catch (e) {
         return {};
     }
 }
 
-function saveState(state) {
-    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
-}
+function writeFile(path, data) {
+    var file = new QFile(path);
 
-// 🔥 kall fra Python via qdbus
-function activateByKeyword(keyword) {
-    let state = loadState();
-    if (!(keyword in state)) {
-        return false;
+    if (!file.open(QIODevice.WriteOnly | QIODevice.Truncate)) {
+        print("Failed to open file for writing:", path);
+        return;
     }
 
-    let info = state[keyword];
-
-    workspace.windowList().forEach(w => {
-        if (
-            w.pid === info.pid &&
-            w.caption === info.caption
-        ) {
-            workspace.activeWindow = w;
-        }
-    });
-
-    return true;
+    var stream = new QTextStream(file);
+    stream.writeString(JSON.stringify(data, null, 2));
+    file.close();
 }
 
-// 🔥 når nytt vindu opprettes
-workspace.windowAdded.connect(function (window) {
-    // filtrer (kun relevante apps)
-    if (!window.caption) return;
+/*
+ * KEYWORD MAPPING (tilpass dette!)
+ */
+function getKeyword(window) {
+    if (!window.caption) return null;
 
-    // f.eks Brave
-    if (!window.resourceClass.includes("brave")) return;
+    var caption = window.caption.toLowerCase();
 
-    let state = loadState();
+    // 🔥 EKSEMPEL: Brave profiler
+    if (caption.includes("profile_privat")) {
+        return "brave-privat";
+    }
 
-    // 🔑 UTLED KEYWORD FRA CAPTION
-    let keyword = window.caption; // du kan forbedre dette
+    if (caption.includes("profile_work")) {
+        return "brave-work";
+    }
+
+    // fallback: bruk caption
+    return window.caption;
+}
+
+/*
+ * WINDOW TRACKING
+ */
+workspace.windowAdded.connect(function(window) {
+    if (!window || !window.caption) return;
+
+    print("NEW WINDOW:", window.caption);
+
+    // filtrer apps (valgfritt)
+    if (window.resourceClass &&
+        !window.resourceClass.toLowerCase().includes("brave")) {
+        return;
+        }
+
+        var keyword = getKeyword(window);
+    if (!keyword) return;
+
+    var state = readFile(STATE_FILE);
 
     state[keyword] = {
-        pid: window.pid,
         caption: window.caption,
+        pid: window.pid,
+        resourceClass: window.resourceClass,
         internalId: window.internalId
     };
 
-    saveState(state);
+    writeFile(STATE_FILE, state);
+
+    print("Stored window:", keyword);
 });
+
+/*
+ * CLEANUP når vindu lukkes
+ */
+workspace.windowRemoved.connect(function(window) {
+    var state = readFile(STATE_FILE);
+    var changed = false;
+
+    for (var key in state) {
+        if (state[key].pid === window.pid) {
+            delete state[key];
+            changed = true;
+            print("Removed window:", key);
+        }
+    }
+
+    if (changed) {
+        writeFile(STATE_FILE, state);
+    }
+});
+
+/*
+ * ACTIVATE FUNCTION (DBus)
+ */
+function activateByKeyword(keyword) {
+    print("Activate request:", keyword);
+
+    var state = readFile(STATE_FILE);
+
+    if (!(keyword in state)) {
+        print("Keyword not found:", keyword);
+        return false;
+    }
+
+    var info = state[keyword];
+
+    var windows = workspace.windowList();
+
+    for (var i = 0; i < windows.length; i++) {
+        var w = windows[i];
+
+        if (
+            w.caption === info.caption &&
+            w.resourceClass === info.resourceClass
+        ) {
+            workspace.activeWindow = w;
+            print("Activated:", keyword);
+            return true;
+        }
+    }
+
+    print("Window not found for keyword:", keyword);
+    return false;
+}
+
+/*
+ * REGISTER DBUS INTERFACE
+ */
+registerDBusInterface("org.kde.KWin.winrun");
