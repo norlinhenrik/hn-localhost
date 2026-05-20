@@ -3,6 +3,7 @@
 # VIRTUALBOX
 
 Start: View - Auto-Resize Guest Display
+Start: Devices - Shared Clipboard - Bidirectional
 
 If not working, try the following two things:
 
@@ -32,7 +33,8 @@ pipx install oca-port
 
 sudo apt install snapd
 sudo snap install brave
-sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/bin/vivaldi
+sudo snap install codium --classic
+#sudo snap install vivaldi && sudo ln -s /snap/bin/vivaldi.vivaldi-stable /snap/bin/vivaldi
 
 sudo apt install xclip # Copy (e.g. xclip -sel clip < ~/.ssh/id_ed25519.pub)
 
@@ -69,3 +71,8 @@ ln -s ~/src/gh/norlinhenrik/hn-localhost/main/winrun ~/.local/bin/winrun
 # - Install Odoo Debug
 # - Install Bitwarden
 # - Sync Brave (use key saved in Bitwarden)
+
+# CODIUM
+
+codium --install-extension cline.cline
+codium --install-extension Continue.continue
