@@ -62,9 +62,17 @@ def launch_and_capture(cmd_list):
     """Start kommando, vent litt, returner ID til sist åpnet vindu."""
     subprocess.Popen(cmd_list)
     time.sleep(2)  # vent på at vinduet åpner
+    print("FØR wmctrl")
+    # result = run(["wmctrl", "-lp"])
 
-    result = run(["wmctrl", "-lp"])
+    result = subprocess.run(
+        ["wmctrl", "-lp"],
+        capture_output=True,
+        text=True
+    )
+    print("ETTER wmctrl")
     lines = result.stdout.strip().splitlines()
+    print(lines)
     return lines[-1].split()[0] if lines else None
 
 # --- Main ---

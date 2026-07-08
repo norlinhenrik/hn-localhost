@@ -1,0 +1,13 @@
+{
+  "KPlugin": {
+    "Id": "winrun",
+    "Name": "winrun",
+    "Description": "Window tracking for winrun",
+    "Version": "1.0",
+    "License": "MIT",
+    "EnabledByDefault": true
+  },
+  "KPackageStructure": "KWin/Script",
+  "X-Plasma-API": "javascript",
+  "X-Plasma-MainScript": "code/main.js"
+}
