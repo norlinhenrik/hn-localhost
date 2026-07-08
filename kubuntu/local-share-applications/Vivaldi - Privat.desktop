@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=
-Exec=winrun vivaldi-privat vivaldi.vivaldi-stable --profile-directory="Profile_Privat"
+Exec=winrun vivaldi-privat vivaldi --profile-directory="Profile_Privat"
 Icon=/home/henrik/.local/share/applications/icons/yellow.svg
 Name=Vivaldi - Privat
 NoDisplay=false

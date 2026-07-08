@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+import subprocess
+import time
+from pathlib import Path
+
+"""
+winrun - Dynamic single-instance launcher for X11.
+
+Usage:
+    winrun <keyword> <command> [args...]
+
+Description:
+    - If a window for <keyword> exists: focus it.
+    - Otherwise: run the command.
+    - Store window ID in ~/.cache/winrun/windows.json.
+
+Install options:
+    COPY:
+        mkdir -p $HOME/.local/bin && cp winrun $HOME/.local/bin/winrun
+    LINK:
+        mkdir -p $HOME/.local/bin && ln -s $(realpath winrun) $HOME/.local/bin/winrun
+
+Use Case:
+    - Use multiple windows of the same app (e.g. a browser).
+    - Create a window as an application .desktop file.
+        * KDE: Right-click Launcher, "Edit Applications...", set command to: winrun ...
+    - Run the application. If already running, it focuses the existing window.
+    - Optional: Drag the application to the task bar. (Regular pinning does not work.)
+"""
+
+STATE = Path.home() / ".cache/winrun/windows.json"
+
+# --- Helper functions ---
+def run(cmd):
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+def ensure_state_dir():
+    """Lag hele mappen til STATE hvis den ikke finnes."""
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+
+def load_state():
+    ensure_state_dir()
+    if STATE.exists():
+        return json.loads(STATE.read_text())
+    return {}
+
+def save_state(state):
+    ensure_state_dir()
+    STATE.write_text(json.dumps(state, indent=2))
+
+def window_exists(win_id):
+    result = run(["wmctrl", "-l"])
+    return win_id in result.stdout
+
+def focus_window(win_id):
+    run(["wmctrl", "-ia", win_id])
+
+def launch_and_capture(cmd_list):
+    """Start kommando, vent litt, returner ID til sist åpnet vindu."""
+    subprocess.Popen(cmd_list)
+    time.sleep(2)  # vent på at vinduet åpner
+
+    result = run(["wmctrl", "-lp"])
+    lines = result.stdout.strip().splitlines()
+    return lines[-1].split()[0] if lines else None
+
+# --- Main ---
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: winrun <keyword> <command> [args...]")
+        sys.exit(1)
+
+    keyword = sys.argv[1]
+    command = sys.argv[2:]
+    
+    state = load_state()
+
+    # 1️⃣ Fokuser eksisterende vindu hvis lagret
+    if keyword in state and window_exists(state[keyword]):
+        focus_window(state[keyword])
+        return
+
+    # 2️⃣ Launch ny window og registrer ID
+    win_id = launch_and_capture(command)
+    if win_id:
+        state[keyword] = win_id
+        save_state(state)
+
+if __name__ == "__main__":
+    main()
