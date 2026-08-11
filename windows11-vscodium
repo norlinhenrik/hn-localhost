@@ -1,0 +1,14 @@
+Ctrl+Shift+P → Preferences: Open User Settings (JSON)
+
+Legg inn denne innstillingen:
+
+"terminal.integrated.profiles.windows": {
+    "PowerShell (Cline test)": {
+        "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+            "-ExecutionPolicy",
+            "Bypass"
+        ]
+    }
+},
+"terminal.integrated.defaultProfile.windows": "PowerShell (Cline test)"
